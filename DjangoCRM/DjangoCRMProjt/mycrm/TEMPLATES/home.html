@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+<div class="col-4 offset-4">
+    <h5>Customer Records</h5>
+</div>
+<div class="col-10 offset-1">
+<table id="example" class="table table-primary table-striped table-hover display" style="width:100%">
+  <thead class="table table-dark">
+    <tr>
+      <th scope="col">S/N</th>
+       <th scope="col">Created Date</th>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Email</th>
+       <th scope="col">Phone</th>
+      <th scope="col">City</th>
+      <th scope="col">State</th>
+    </tr>
+  </thead>
+ <tbody>
+{% if records %}
+{% for record in records %}
+    <tr>
+      <th scope="row">{{record.id}}</th>
+      <td><a href="{% url 'record' record.id %}" style="text-decoration:none;color:black">{{record.create_at}}</a></td>
+       <td> <a href="{% url 'record' record.id %}" style="text-decoration:none;color:black">{{record.first_name}}</a></td>
+      <td><a href="{% url 'record' record.id %}" style="text-decoration:none;color:black">{{record.last_name}}</a></td>
+       <td><a href="{% url 'record' record.id %}" style="text-decoration:none;color:black">{{record.email}}</a></td>
+       <td><a href="{% url 'record' record.id %}" style="text-decoration:none;color:black">{{record.phone}}</a></td>
+       <td><a href="{% url 'record' record.id %}" style="text-decoration:none;color:black">{{record.city}}</a></td>
+       <td><a href="{% url 'record' record.id %}" style="text-decoration:none;color:black">{{record.state}}</a></td>
+<!--<td scope="row" class="btn btn-primary"><a href="{% url 'record' record.id %}" style="text-decoration:none">View</a></td>-->
+
+    </tr>
+    {% endfor %}
+    {% endif %}
+</tbody>
+</table>
+</div>
+{% else %}
+<div class="col-4 offset-4">
+<h1>Login</h1>
+<form action="{% url 'home' %}" method="post">
+    {% csrf_token %}
+    <input type="text" class="form-control" name="username" placeholder="username" required><br>
+    <input type="password" class="form-control" name="password" placeholder="password" required><br>
+    <button type="submit" class="btn btn-primary">Login</button>
+</form>
+</div>
+{% endif %}
+
+{% endblock content %}
+

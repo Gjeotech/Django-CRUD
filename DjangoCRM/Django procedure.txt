@@ -1,0 +1,109 @@
+
+
+===================DJANGO PRJECT PROCEDURS=================
+
+mkdir DjangoCRUD
+
+pip install virtualenv
+
+virtualenv Projectenv
+
+cd Projectenv
+
+cd scripts
+
+activate
+
+cd .. 2x
+
+cd DjangoCRUD
+
+pip install django
+
+python -m django --version
+
+===FOR EXTERNAL DB ==
+
+pip install cx_oracle
+
+or 
+
+pip install mysqlclient
+
+
+===START A DJANGO PROJECT==
+
+
+python -m django startproject DjangoProjt
+
+cd DjangoProjt
+
+dir
+
+
+====START DJANGO APP ===
+
+python manage.py startapp mycrud
+
+
+===Launch APP====
+
+python manage.py runserver
+
+
+
+=======MAKE MIGRATIONS=====
+
+python manage.py makemigrations
+
+
+=======MIGRATE =======
+
+python manage.py migrate
+
+====CREATE SUPPER ADMIN ACCOUNT====
+
+python manage.py createsuperuser
+
+
+
+================================THE  END =====================
+
+
+#for exmport and importing of files
+pip install django_import_export
+
+For Auto logout
+pip install django-auto-logout 
+=================================
+Mb Calculation
+===============================
+The setting FILE_UPLOAD_MAX_MEMORY_SIZE = 10485760 represents a file upload size limit in bytes. To convert this value to megabytes (MB), you can use the following calculation:
+
+1 MB = 1,024 KB
+1 KB = 1,024 bytes
+
+So, 1 MB = 1,024 × 1,024 bytes = 1,048,576 bytes.
+
+Given 10485760 bytes:
+
+Size in MB
+=
+10485760
+ bytes
+1
+,
+048
+,
+576
+ bytes per MB
+=
+10
+ MB
+Size in MB= 
+1,048,576 bytes per MB
+10485760 bytes
+​
+ =10 MB
+
+Therefore, FILE_UPLOAD_MAX_MEMORY_SIZE = 10485760 bytes is equivalent to 10 MB.

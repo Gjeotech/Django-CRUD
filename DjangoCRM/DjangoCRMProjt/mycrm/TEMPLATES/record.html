@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<br>
+<div class="card col-6 offset-3 ">
+  <div class="card-header card text-bg-primary mb-3">
+     <h5 class="card-title">Customer Records </h5>
+  </div>
+  <div class="card-body">
+
+    <p class="card-text">
+     <b >User with ID: </b>{{customer_record.id}}<hr>
+      <b>Date Account created: </b>{{customer_record.create_at}}<br>
+      <b>User First Name: </b>{{customer_record.first_name}}<br>
+      <b>User Last Name: </b> {{customer_record.last_name}}<br>
+      <b>User Email: </b> {{customer_record.email}}<br>
+      <b>User Phone Number: </b> {{customer_record.phone}}<br>
+      <b>User City: </b> {{customer_record.city}}<br>
+     <b>User Country State: </b> {{customer_record.state}} <br>
+    <b>Profile Image : </b>
+    {% if customer_record.profile_image %}
+     <a href="{{ customer_record.profile_image.url }}"><img src="{{ customer_record.profile_image.url }}" class="rounded-circle"
+             alt="Profile Image" style="float:right;width:100px;height:100px;cursor:pointer"></a>
+      <a href="{{ customer_record.profile_image.url }}" download style="text-decoration:none">Download Profile</a>
+    {% else %}
+        <p>No profile image available.</p>
+    {% endif %}
+
+    </p>
+    <a href="{% url 'home' %}" class="btn btn-primary">Go Back</a>
+     <a href="{% url 'delete' customer_record.id %}" class="btn btn-danger">Delete</a>
+     <a href="{% url 'update' customer_record.id %}" class="btn btn-success">Update</a>
+  </div>
+</div>
+
+
+{% endblock content %}
